@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 5000;
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
@@ -22,6 +22,8 @@ mongoose
   .catch((err) => console.log(err));
 
 app.get("/", (req, res) => res.send("Hello World!")); // root 디렉토리에 오면 문구를 띄우도록 한다.
+
+app.get("/api/users/hello", (req, res) => res.send("안녕하세요"));
 
 app.post("/api/users/register", (req, res) => {
   // 회원가입 할때 필요한 정보들을 클라이언트에서 가져오면 그것들을 데이터베이스에 넣어준다.
